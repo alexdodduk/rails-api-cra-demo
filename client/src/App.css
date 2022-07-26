@@ -3,6 +3,10 @@
   margin: auto;
 }
 
+input {
+  margin-top: 2rem;
+}
+
 ol {
   list-style: none;
   margin: 0;

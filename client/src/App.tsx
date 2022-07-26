@@ -5,25 +5,33 @@ import FoodType from './FoodType'
 import Food from './Food';
 
 function App() {
-  const [foods, setFoods] = useState<FoodType[]>()
+  const [foods, setFoods] = useState<FoodType[]>([])
+  const [search, setSearch] = useState("ice cream")
 
   useEffect(() => {
-    api<FoodType[]>('/api/food?q=ice+cream')
+    if (search) {
+      api<FoodType[]>(`/api/food?q=${search}`)
       .then(foods => {
         setFoods(foods)
       })
       .catch((e) => console.error("Woops!", e))
-  }, [])
+    }
+  }, [search])
 
-  const foodList = foods ?
+  const foodList = foods.length ?
     (
       <ol>
         { foods.map(f => <Food key={f.ndb_no} {...f} />) }
       </ol>
-    ) : "no foods found"
+    ) : <p>no foods found</p>
 
   return (
     <div className="App">
+      <input
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Start typing an ingredient"
+        value={search}
+      />
       { foodList }
     </div>
   );
