@@ -1,24 +1,13 @@
-# README
+# Rails API & React Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple web app that uses React and a Rails API. Based on the [fullstack React guide](https://www.newline.co/fullstack-react/articles/how-to-get-create-react-app-to-work-with-your-rails-api/)
 
-Things you may want to cover:
+## Running
 
-* Ruby version
+```
+rake start
+```
 
-* System dependencies
+will use Foreman to start the Rails API on port 3002 and the React app on port 3001 similtaneously.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Then simply go to [your localhost](http://localhost:3001) to view the app!
